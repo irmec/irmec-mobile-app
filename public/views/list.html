@@ -1,0 +1,21 @@
+<div class="row scrollable">
+	<div class="scrollable col-md-12 scrollable-content" ui-scroll-bottom="bottomReached()">
+		
+		<table class="table table-striped">
+			<thead>
+				<th>id</th>
+				<th>Name</th>
+				<th>Contact</th>			
+			</thead>
+			<tbody ng-repeat="member in members">
+				<tr>
+					<td>{{ member.id }}</td>
+					<td>{{ member.lastname + ', ' + member.firstname }}</td>
+					<td>{{ member.cell_phone }}</td>
+				</tr>
+			</tbody>							
+		</table>		
+	</div>	
+</div>
+
+
