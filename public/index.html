@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./lib/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+		<script src="./lib/angular/angular.min.js"></script>
+		<script src="./lib/angular-route/angular-route.min.js"></script>
+		<script src="./lib/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+		<script src="./app/app.js"></script>
+		<script src="./app/controllers/members.js"></script>
+	</head>
+	<body ng-app="memberRecordsApp">
+		<div class="app">
+			<div class="navbar navbar-app navbar-absolute-top"><!-- Top Navbar --></div>
+			<div class="navbar navbar-app navbar-absolute-bottom"><!-- Bottom Navbar --></div>
+
+    <!-- App body -->
+
+			<div class='app-body'>
+				<div class='app-content'>
+					<ng-view></ng-view>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div ui-yield-to="modals"></div>
+	</body>
+</html>
