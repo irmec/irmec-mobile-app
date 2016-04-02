@@ -16,10 +16,17 @@ var memberRecordsApp = angular.module('memberRecordsApp', [
 /** Routes **/
 
 memberRecordsApp.config(['$routeProvider', function ($routeProvider) {								
-	$routeProvider.when('/' ,{				
+	$routeProvider
+		.when('/' ,{				
 			templateUrl: 'views/list.html',
 			controller: 'membersListCtrl'															
-		});					
+		})
+		
+		.when('/edit-member/:memberId',{
+			templateUrl: 'views/edit.html',
+			controller: 'memberEditCtrl'			
+		});
+		
 	}
 ]);
 
@@ -29,10 +36,14 @@ memberRecordsApp.config(['$routeProvider', function ($routeProvider) {
 var memberRecordsServices = angular.module('memberRecordsServices', ['ngResource']).constant('API_URL', 'http://localhost/irmec-api/laravel/public/api/v1/');
 
 memberRecordsServices.factory('Members', ['$resource', 'API_URL',
-   function($resource, API_URL){
-		   
+   function($resource, API_URL){		   
 	  	return $resource(API_URL + 'members',{}, {query: {method:'GET', params:{}, isArray:true}});
  }]);
+ 
+memberRecordsServices.factory('MemberEdit', ['$resource', 'API_URL',
+	function($resource, API_URL){
+		return $resource(API_URL + 'members/:memberId',{}, {query: {method:'GET', params:{}, isArray:true}}); 		
+}]);
 
 
 	
